@@ -1,17 +1,16 @@
 import { useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 import Container from '../../components/Container/Container';
 import Form from '../../components/Form/Form';
+import FormBottom from '../../components/FormBottom/FormBottom';
 import FormRow from '../../components/formRow/FormRow';
 import Input from '../../components/input/Input';
 import { AuthContext } from '../../context/AuthContext';
 import validateEmail from '../../helpers/validateEmail';
 import useForm from '../../hooks/useForm';
 import Page from '../../layouts/Page/Page';
-
-import './Register.scss';
 
 const Register = () => {
   const navigate = useNavigate();
@@ -93,10 +92,8 @@ const Register = () => {
               value={formData.password}
             />
           </FormRow>
+          <FormBottom firstText="Already have an account?" href="/login" linkText="Login here" />
         </Form>
-        <p className="Register__alreadyMember">
-          Already have an account? <Link to="/login">Login here</Link>
-        </p>
       </Container>
     </Page>
   );

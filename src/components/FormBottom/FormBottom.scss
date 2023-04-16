@@ -1,0 +1,24 @@
+.form-bottom {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  margin-top: 1rem;
+
+  p {
+    margin-right: 4px;
+    font-size: 0.9rem;
+    text-align: center;
+  }
+  a,
+  button {
+    color: var(--primary);
+    font-size: 0.9rem;
+    text-decoration: underline;
+  }
+
+  button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+}

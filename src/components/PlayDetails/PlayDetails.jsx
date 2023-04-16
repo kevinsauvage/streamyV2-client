@@ -1,10 +1,8 @@
 /* eslint-disable camelcase */
 import { useContext } from 'react';
 import { BsPlayFill } from 'react-icons/bs';
-import { FaPhotoVideo } from 'react-icons/fa';
 import { IoMdAdd } from 'react-icons/io';
 import { MdRemoveCircleOutline } from 'react-icons/md';
-import { Link } from 'react-router-dom';
 
 import { UserContext } from '../../context/UserContext';
 import extractYearFromDate from '../../helpers/extractYearFromDate';
@@ -14,7 +12,7 @@ import CreditBox from '../CreditBox/CreditBox';
 
 import './PlayDetails.scss';
 
-const PlayDetails = ({ id, movie, playTrailer, type }) => {
+const PlayDetails = ({ movie, playTrailer, type }) => {
   const { addToMovieList, removeFromMovieList, userMovies } = useContext(UserContext);
   const {
     original_name,
@@ -29,6 +27,7 @@ const PlayDetails = ({ id, movie, playTrailer, type }) => {
     genres,
     credits,
     overview,
+    id,
   } = movie;
 
   return (
@@ -76,7 +75,7 @@ const PlayDetails = ({ id, movie, playTrailer, type }) => {
             <BsPlayFill /> Play Trailer
           </button>
 
-          {userMovies && movie && userMovies.map((item) => item.id).includes(movie.id) ? (
+          {userMovies && movie && userMovies.map((item) => item.id).includes(id) ? (
             <button
               type="button"
               className="play-details__info-btn"
@@ -95,11 +94,6 @@ const PlayDetails = ({ id, movie, playTrailer, type }) => {
               watch List
             </button>
           )}
-          <Link to={`/${type}/${id}/comment`} state={{ type }}>
-            <button type="button" className="play-details__info-btn">
-              <FaPhotoVideo /> Comments
-            </button>
-          </Link>
         </div>
       </div>
     </div>

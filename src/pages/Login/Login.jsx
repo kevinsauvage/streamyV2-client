@@ -4,6 +4,7 @@ import { toast } from 'react-toastify';
 
 import Container from '../../components/Container/Container';
 import Form from '../../components/Form/Form';
+import FormBottom from '../../components/FormBottom/FormBottom';
 import Input from '../../components/input/Input';
 import ResetPassword from '../../components/ResetPassword/ResetPassword';
 import { AuthContext } from '../../context/AuthContext';
@@ -12,8 +13,6 @@ import { stopScroll } from '../../helpers/scroll';
 import { setItem } from '../../helpers/sessionStorage';
 import useForm from '../../hooks/useForm';
 import Page from '../../layouts/Page/Page';
-
-import './Login.scss';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -85,16 +84,17 @@ const Login = () => {
             onChange={handleInputChange}
             value={formData.password}
           />
-          <button
-            type="button"
-            className="Login__forgotPassword"
+
+          <FormBottom
+            firstText="Lost your Password?"
+            linkText="Recover it here"
             onClick={() => {
               stopScroll();
               setDisplayPassRec(!displayPassRec);
             }}
-          >
-            Lost your Password?
-          </button>
+          />
+
+          <FormBottom firstText="Not a member yet?" linkText="Register here" href="/register" />
         </Form>
       </Container>
       {displayPassRec && <ResetPassword setDisplayPassRec={setDisplayPassRec} />}

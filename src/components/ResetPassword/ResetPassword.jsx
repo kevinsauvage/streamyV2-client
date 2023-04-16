@@ -33,13 +33,14 @@ const ResetPassword = ({ setDisplayPassRec }) => {
   return (
     <div className="ResetPassword">
       <Container>
-        <AiOutlineCloseSquare
-          className="ResetPassword__close"
-          onClick={() => {
-            unstopScroll();
-            setDisplayPassRec(false);
-          }}
-        />
+        <div className="ResetPassword__close">
+          <AiOutlineCloseSquare
+            onClick={() => {
+              unstopScroll();
+              setDisplayPassRec(false);
+            }}
+          />
+        </div>
         <Form
           title="Forgot Password ?"
           subtitle="You Can Reset Password Using This Form."
