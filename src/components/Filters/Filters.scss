@@ -1,18 +1,12 @@
-@import '../../styles/variable';
-
 @import '../../styles/mixins';
 
-.Filter {
-  padding: 2rem 0;
-
-  &__filters {
-    position: relative;
-    display: flex;
-    width: 100%;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.5rem;
-  }
+.filters {
+  position: relative;
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
 
   &__btn {
     display: flex;
