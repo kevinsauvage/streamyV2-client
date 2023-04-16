@@ -1,0 +1,18 @@
+@import '../../styles/responsive';
+
+.Container {
+  position: relative;
+  width: 100%;
+  max-width: 1440px;
+  height: fit-content;
+  padding: 0 3rem;
+  margin: 0 auto;
+
+  @include respond(tablet) {
+    padding: 0 2rem;
+  }
+
+  @include respond(mobile_l) {
+    padding: 0 1.5rem;
+  }
+}

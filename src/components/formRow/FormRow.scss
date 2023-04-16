@@ -1,0 +1,13 @@
+@import '../../styles/responsive';
+
+.FormRow {
+  display: grid;
+  width: 100%;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+
+  @include respond(mobile) {
+    gap: unset;
+    grid-template-columns: 1fr;
+  }
+}

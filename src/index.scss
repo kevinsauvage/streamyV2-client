@@ -1,0 +1,38 @@
+@import './styles/theme';
+@import './styles/variable';
+@import './styles/font-face';
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  position: relative;
+  background-color: var(--surface-900);
+  color: var(--on-surface-100);
+  font-family: 'Poppins', sans-serif;
+  font-size: calc(13px + (16 - 13) * ((100vw - 320px) / (1920 - 320)));
+  font-weight: 400;
+  letter-spacing: 0px;
+  overflow-x: hidden;
+  text-size-adjust: 100%;
+}
+
+a {
+  color: var(--on-surface-100);
+  text-decoration: none;
+}
+
+.hide-mobile {
+  @media (max-width: $tablet) {
+    display: none;
+  }
+}
+
+.hide-desktop {
+  @media (min-width: $tablet) {
+    display: none;
+  }
+}

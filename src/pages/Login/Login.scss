@@ -1,0 +1,21 @@
+@import '../../styles/variable';
+
+.Login {
+  &__forgotPassword {
+    border: none;
+    margin-top: 2rem;
+    background-color: transparent;
+    color: var(--on-surface-100);
+    cursor: pointer;
+    text-decoration: underline;
+
+    &:hover {
+      color: var(--primary);
+    }
+  }
+
+  &__form {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}

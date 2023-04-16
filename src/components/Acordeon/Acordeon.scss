@@ -1,0 +1,90 @@
+@import '../../styles/responsive';
+@import '../../styles/variable';
+@import '../../styles/mixins';
+
+.Acordeon {
+  position: relative;
+  width: 100%;
+  padding: 4rem 0;
+  margin-bottom: 4rem;
+  transform-origin: center;
+
+  @include respond(mobile) {
+    margin-bottom: 0;
+  }
+
+  @include respond(tablet) {
+    overflow: hidden;
+  }
+
+  &__loader {
+    display: flex;
+    width: 100%;
+    height: 60vh;
+    align-items: center;
+    justify-content: center;
+    div {
+      @include spin;
+    }
+  }
+
+  &__inner {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: fit-content;
+    align-items: center;
+    justify-content: space-between;
+    color: #ffffff;
+    transform: translateX(0);
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease;
+
+    @include respond(mobile) {
+      transition: none;
+    }
+
+    @include respond(tablet) {
+      @include fadeIn(0.4s);
+    }
+  }
+
+  &__wrapper {
+    position: relative;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 90px;
+    perspective: 1200px;
+
+    @include respond(tablet) {
+      margin-top: 0;
+    }
+  }
+
+  &__arrow {
+    position: absolute;
+    z-index: 999999999;
+    top: 50%;
+    display: flex;
+    height: fit-content;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 3rem;
+    transform: translateY(-50%);
+
+    svg {
+      color: var(--primary);
+    }
+
+    &--previus {
+      left: 0rem;
+    }
+
+    &--next {
+      right: 0rem;
+    }
+  }
+}

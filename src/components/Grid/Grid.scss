@@ -1,0 +1,14 @@
+@import '../../styles/responsive';
+
+.Grid {
+  display: grid;
+  align-items: center;
+  margin-top: 1rem;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+
+  @include respond(mobile_l) {
+    gap: 0.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
+  }
+}

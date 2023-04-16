@@ -1,0 +1,29 @@
+@import './variable';
+
+@mixin respond($media) {
+  @if $media == mobile_s {
+    @media (max-width: $mobile_s) {
+      @content;
+    }
+  } @else if $media == mobile_m {
+    @media (max-width: $mobile_m) {
+      @content;
+    }
+  } @else if $media == mobile_l {
+    @media (max-width: $mobile_l) {
+      @content;
+    }
+  } @else if $media == tablet {
+    @media (max-width: $tablet) {
+      @content;
+    }
+  } @else if $media == laptop_s {
+    @media (max-width: $laptop_s) {
+      @content;
+    }
+  } @else if $media == laptop_l {
+    @media (max-width: $laptop_l) {
+      @content;
+    }
+  }
+}

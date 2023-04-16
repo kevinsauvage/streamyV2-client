@@ -1,0 +1,21 @@
+.Header {
+  position: relative;
+  z-index: 999999;
+  height: 70px;
+  background-color: var(--surface-800);
+  box-shadow: rgba(black, 0.25) 0px 14px 28px, rgba(black, 0.22) 0px 10px 10px;
+
+  .Container {
+    position: relative;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    margin-right: 2rem;
+    font-size: 2rem;
+    letter-spacing: 2px;
+  }
+}
