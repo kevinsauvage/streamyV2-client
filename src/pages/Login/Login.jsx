@@ -64,29 +64,27 @@ const Login = () => {
   return (
     <Page className="Login">
       <Container>
-        <div className="Login__form">
-          <Form
-            title="Welcome Back !"
-            subtitle="Have fun finding your favorite movies and tv shows."
-            handleSubmit={handleSubmit}
-            loading={loading}
-            btnText="LOGIN"
-          >
-            <Input
-              label="Email"
-              type="text"
-              name="email"
-              onChange={handleInputChange}
-              value={formData.email}
-            />
-            <Input
-              label="Password"
-              type="password"
-              name="password"
-              onChange={handleInputChange}
-              value={formData.password}
-            />
-          </Form>
+        <Form
+          title="Welcome Back !"
+          subtitle="Have fun finding your favorite movies and tv shows."
+          handleSubmit={handleSubmit}
+          loading={loading}
+          btnText="LOGIN"
+        >
+          <Input
+            label="Email"
+            type="text"
+            name="email"
+            onChange={handleInputChange}
+            value={formData.email}
+          />
+          <Input
+            label="Password"
+            type="password"
+            name="password"
+            onChange={handleInputChange}
+            value={formData.password}
+          />
           <button
             type="button"
             className="Login__forgotPassword"
@@ -97,7 +95,7 @@ const Login = () => {
           >
             Lost your Password?
           </button>
-        </div>
+        </Form>
       </Container>
       {displayPassRec && <ResetPassword setDisplayPassRec={setDisplayPassRec} />}
     </Page>
