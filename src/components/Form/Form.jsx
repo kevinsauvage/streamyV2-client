@@ -1,6 +1,6 @@
 import './Form.scss';
 
-const Form = ({ children, title, subtitle, handleSubmit, btnText, error, loading, className }) => (
+const Form = ({ children, title, subtitle, handleSubmit, btnText, loading, className }) => (
   <div className={`Form ${className || ''}`}>
     <p className="Form__title">{title}</p>
     {subtitle && <p className="Form__subtitle">{subtitle}</p>}
@@ -12,7 +12,6 @@ const Form = ({ children, title, subtitle, handleSubmit, btnText, error, loading
       ) : (
         <>
           {children}
-          <p className="Form__error">{error}</p>
           <button type="submit" onClick={handleSubmit} className="Form__form-btn">
             <p>{btnText}</p>
           </button>
