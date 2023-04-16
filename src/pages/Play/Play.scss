@@ -124,6 +124,7 @@
   &__tagline {
     margin-bottom: 2rem;
     font-size: 0.9rem;
+    font-weight: 200;
   }
 
   &__release {
@@ -141,7 +142,7 @@
   &__overview {
     margin-top: 1rem;
     font-size: 1rem;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 1.5;
   }
 
@@ -174,6 +175,7 @@
     border: 1px solid var(--primary);
     border-radius: 4px;
     font-size: 0.8rem;
+    font-weight: 300;
   }
 
   &__btns {
