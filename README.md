@@ -4,7 +4,7 @@
 
 ## About The Project
 
-Streamy is here to help you find movie and show that you may like, watch trailer, add them to your watch list, read and add comments.
+Streamy is a user-friendly platform for movie and TV enthusiasts. It offers a personalized experience with features such as personalized recommendations and a community-based approach to entertainment discovery. Customers can easily discover new titles, watch trailers, and add them to their personal watch list. With Streamy, they can also join the conversation by adding comments about their favorite titles. Experience the ultimate entertainment destination with Streamy today!
 
 ### Built With
 
