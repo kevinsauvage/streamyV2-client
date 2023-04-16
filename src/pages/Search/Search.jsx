@@ -3,7 +3,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 
 import Container from '../../components/Container/Container';
 import Grid from '../../components/Grid/Grid';
-import MediumMovieCard from '../../components/MediumMovieCard/MediumMovieCard';
+import MovieCard from '../../components/MovieCard/MovieCard';
 import apiHelper from '../../helpers/apiHelper';
 import requests from '../../helpers/requests';
 import updateURLParameters from '../../helpers/updateUrlParameters';
@@ -57,7 +57,7 @@ const Search = () => {
       <Container>
         <Grid>
           {items.map((item) => (
-            <MediumMovieCard key={item.id} movie={item} />
+            <MovieCard key={item.id} movie={item} />
           ))}
         </Grid>
       </Container>

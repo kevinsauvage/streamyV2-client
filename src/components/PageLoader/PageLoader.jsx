@@ -1,8 +1,8 @@
 import './PageLoader.scss';
 
 const PageLoader = () => (
-  <div className="PageLoader">
-    <div className="PageLoader__spinner" />
+  <div className="page-loader">
+    <div className="page-loader__spinner" />
   </div>
 );
 

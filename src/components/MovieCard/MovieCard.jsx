@@ -7,24 +7,20 @@ import { image } from '../../helpers/requests';
 import PlaceholderImage from '../../images/placeholder.png';
 import CardBtns from '../CardBtns/CardBtns';
 
-import './MediumMovieCard.scss';
+import './MovieCard.scss';
 
-const MediumMovieCard = ({ movie, type }) => {
+const MovieCard = ({ movie, type }) => {
   const card = useRef(null);
   const { original_name, original_title, poster_path } = movie || {};
 
   return (
-    <div className="MediumMovieCard" ref={card}>
-      <div className="MediumMovieCard__imgWrapper">
-        <div className="MediumMovieCard__imgWrapper-hover">
-          <CardBtns
-            movie={movie}
-            type={type}
-            className="MediumMovieCard__imgWrapper-hover__buttons"
-          />
+    <div className="Movie-card" ref={card}>
+      <div className="Movie-card__imgWrapper">
+        <div className="Movie-card__imgWrapper-hover">
+          <CardBtns movie={movie} type={type} className="Movie-card__imgWrapper-hover__buttons" />
         </div>
         <img
-          className="MediumMovieCard__img"
+          className="Movie-card__img"
           loading="lazy"
           src={
             poster_path
@@ -36,20 +32,20 @@ const MediumMovieCard = ({ movie, type }) => {
           height="278"
         />
       </div>
-      <div className="MediumMovieCard__detail">
+      <div className="Movie-card__detail">
         <Link to={`/${type || movie?.media_type}/${movie.id}`}>
-          <p className="MediumMovieCard__title">
+          <p className="Movie-card__title">
             {movie?.title || movie?.original_title || movie?.original_name || ''}
           </p>
         </Link>
-        <p className="MediumMovieCard__release">
+        <p className="Movie-card__release">
           {extractYearFromDate(movie?.release_date) || extractYearFromDate(movie?.first_air_date)}
         </p>
-        <p className="MediumMovieCard__average">
+        <p className="Movie-card__average">
           <span>{movie?.vote_average?.toFixed()}</span> / 10
         </p>
         {(movie?.media_type || type) && (
-          <p className="MediumMovieCard__genre">
+          <p className="Movie-card__genre">
             {movie?.media_type === 'tv' ? 'show' : type || movie?.media_type}
           </p>
         )}
@@ -58,4 +54,4 @@ const MediumMovieCard = ({ movie, type }) => {
   );
 };
 
-export default MediumMovieCard;
+export default MovieCard;

@@ -1,7 +1,7 @@
 import Container from '../../components/Container/Container';
 import Filters from '../../components/Filters/Filters';
 import Grid from '../../components/Grid/Grid';
-import MediumMovieCard from '../../components/MediumMovieCard/MediumMovieCard';
+import MovieCard from '../../components/MovieCard/MovieCard';
 import Title from '../../components/Title/Title';
 import useFilter from '../../hooks/useFilter';
 import useIsBottom from '../../hooks/useIsBottom';
@@ -27,11 +27,7 @@ const Filter = () => {
         <Grid>
           {movies.length > 0 &&
             movies.map((movie) => (
-              <MediumMovieCard
-                key={movie.id}
-                movie={movie}
-                type={type?.split('-')[0].toLowerCase()}
-              />
+              <MovieCard key={movie.id} movie={movie} type={type?.split('-')[0].toLowerCase()} />
             ))}
         </Grid>
       </Container>

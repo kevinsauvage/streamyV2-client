@@ -1,7 +1,7 @@
 import { Children, cloneElement, useRef } from 'react';
 import { SlArrowLeft, SlArrowRight } from 'react-icons/sl';
 
-import Indicators from './Indicators';
+import Indicators from './Indicators/Indicators';
 import useCarouselFonctions from './useCarouselFonctions';
 
 import './Carousel.scss';

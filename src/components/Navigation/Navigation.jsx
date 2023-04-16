@@ -10,6 +10,7 @@ const navItems = [
   { content: 'Series', href: '/show', icon: <BiSlideshow /> },
   { content: 'Filters', href: '/filter', icon: <MdFilterList /> },
 ];
+
 const Navigation = ({ classNames }) => {
   const location = useLocation();
   return (

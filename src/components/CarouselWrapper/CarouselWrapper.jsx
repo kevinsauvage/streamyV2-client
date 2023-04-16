@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import apiHelper from '../../helpers/apiHelper';
 import Carousel from '../Carousel/Carousel';
-import MediumMovieCard from '../MediumMovieCard/MediumMovieCard';
+import MovieCard from '../MovieCard/MovieCard';
 import Title from '../Title/Title';
 
 import './CarouselWrapper.scss';
@@ -38,7 +38,7 @@ const CarouselWrapper = ({ url, title, type }) => {
       <Title title={title} />
       <Carousel width={280} padding={10} loading={loading}>
         {movies.map((item) => (
-          <MediumMovieCard movie={item} key={item.id} type={type} />
+          <MovieCard movie={item} key={item.id} type={type} />
         ))}
       </Carousel>
     </div>
