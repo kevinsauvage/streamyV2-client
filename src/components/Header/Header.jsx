@@ -14,13 +14,15 @@ const Header = () => {
   return (
     <header className="Header">
       <Container>
-        <h1 className="Header__logo">Streamy</h1>
-        <Navigation classNames="hide-mobile" />
-        <UserMenu
-          setDisplayUserMenu={setDisplayUserMenu}
-          displayUserMenu={displayUserMenu}
-          setDisplaySearch={setDisplaySearch}
-        />
+        <div className="Header__container">
+          <h1 className="Header__logo">Streamy</h1>
+          <Navigation classNames="hide-mobile" />
+          <UserMenu
+            setDisplayUserMenu={setDisplayUserMenu}
+            displayUserMenu={displayUserMenu}
+            setDisplaySearch={setDisplaySearch}
+          />
+        </div>
       </Container>
       <SearchModal setDisplaySearch={setDisplaySearch} displaySearch={displaySearch} />
     </header>

@@ -16,12 +16,21 @@
   "globals": {
     "React": "writable"
   },
-  "plugins": ["react", "simple-import-sort", "sort-keys", "import", "react-hooks", "sonarjs"],
+  "plugins": [
+    "react",
+    "simple-import-sort",
+    "sort-keys",
+    "import",
+    "react-hooks",
+    "sonarjs",
+    "css-modules"
+  ],
   "extends": [
     "airbnb",
     "prettier",
     "eslint:recommended",
     "plugin:react-hooks/recommended",
+    "plugin:css-modules/recommended",
     "plugin:react/recommended",
     "plugin:jsx-a11y/recommended",
     "plugin:unicorn/recommended",

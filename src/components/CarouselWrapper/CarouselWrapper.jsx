@@ -5,7 +5,7 @@ import Carousel from '../Carousel/Carousel';
 import MovieCard from '../MovieCard/MovieCard';
 import Title from '../Title/Title';
 
-import './CarouselWrapper.scss';
+import styles from './CarouselWrapper.module.scss';
 
 const CarouselWrapper = ({ url, title, type }) => {
   const [movies, setMovies] = useState([]);
@@ -34,7 +34,7 @@ const CarouselWrapper = ({ url, title, type }) => {
   if (movies.length === 0) return;
 
   return (
-    <div className="CarouselWrapper">
+    <div className={styles.container}>
       <Title title={title} />
       <Carousel width={280} padding={10} loading={loading}>
         {movies.map((item) => (

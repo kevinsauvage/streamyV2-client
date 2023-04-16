@@ -1,5 +1,5 @@
-import './FormRow.scss';
+import styles from './FormRow.module.scss';
 
-const FormRow = ({ children }) => <div className="FormRow">{children}</div>;
+const FormRow = ({ children }) => <div className={styles.row}>{children}</div>;
 
 export default FormRow;
