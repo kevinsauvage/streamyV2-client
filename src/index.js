@@ -3,7 +3,6 @@ import { createRoot } from 'react-dom/client';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 import { AuthProvider } from './context/AuthContext';
-import { CommentProvider } from './context/CommentContext';
 import { UserProvider } from './context/UserContext';
 import App from './App';
 
@@ -17,9 +16,7 @@ root.render(
     <Router>
       <AuthProvider>
         <UserProvider>
-          <CommentProvider>
-            <App />
-          </CommentProvider>
+          <App />
         </UserProvider>
       </AuthProvider>
     </Router>

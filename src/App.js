@@ -5,7 +5,6 @@ import { ToastContainer } from 'react-toastify';
 import Header from './components/Header/Header';
 import PageLoader from './components/PageLoader/PageLoader';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
-import Comment from './pages/Comment/Comment';
 
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -38,9 +37,6 @@ const App = () => (
         </Route>
         <Route exact path="/list" element={<PrivateRoute />}>
           <Route exact path="/list" element={<List />} />
-        </Route>
-        <Route exact path="/:type/:id/comment" element={<PrivateRoute />}>
-          <Route exact path="/:type/:id/comment" element={<Comment />} />
         </Route>
       </Routes>
     </Suspense>
