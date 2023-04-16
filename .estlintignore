@@ -1,20 +1,4 @@
-# dependencies
-node_modules
-
-# testing
-/coverage
-
-# production
+/node_modules
 /build
-
-public
-
-# misc
-.DS_Store
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+/public
 .env
-
-npm-debug.log*
