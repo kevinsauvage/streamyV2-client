@@ -14,13 +14,13 @@ const MovieCard = ({ movie, type }) => {
   const { original_name, original_title, poster_path } = movie || {};
 
   return (
-    <div className="Movie-card" ref={card}>
-      <div className="Movie-card__imgWrapper">
-        <div className="Movie-card__imgWrapper-hover">
-          <CardBtns movie={movie} type={type} className="Movie-card__imgWrapper-hover__buttons" />
+    <div className="movie-card" ref={card}>
+      <div className="movie-card__imgWrapper">
+        <div className="movie-card__imgWrapper-hover">
+          <CardBtns movie={movie} type={type} className="movie-card__imgWrapper-hover__buttons" />
         </div>
         <img
-          className="Movie-card__img"
+          className="movie-card__img"
           loading="lazy"
           src={
             poster_path
@@ -32,20 +32,20 @@ const MovieCard = ({ movie, type }) => {
           height="278"
         />
       </div>
-      <div className="Movie-card__detail">
+      <div className="movie-card__detail">
         <Link to={`/${type || movie?.media_type}/${movie.id}`}>
-          <p className="Movie-card__title">
+          <p className="movie-card__title">
             {movie?.title || movie?.original_title || movie?.original_name || ''}
           </p>
         </Link>
-        <p className="Movie-card__release">
+        <p className="movie-card__release">
           {extractYearFromDate(movie?.release_date) || extractYearFromDate(movie?.first_air_date)}
         </p>
-        <p className="Movie-card__average">
+        <p className="movie-card__average">
           <span>{movie?.vote_average?.toFixed()}</span> / 10
         </p>
         {(movie?.media_type || type) && (
-          <p className="Movie-card__genre">
+          <p className="movie-card__genre">
             {movie?.media_type === 'tv' ? 'show' : type || movie?.media_type}
           </p>
         )}
