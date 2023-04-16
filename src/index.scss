@@ -25,6 +25,11 @@ a {
   text-decoration: none;
 }
 
+a,
+button {
+  font-family: 'Poppins', sans-serif;
+}
+
 .hide-mobile {
   @media (max-width: $tablet) {
     display: none;
