@@ -1,22 +1,24 @@
-@mixin fadeIn($duration) {
-  animation: fadeIn $duration ease forwards;
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
 @mixin blackShadow {
   box-shadow: rgba(black, 0.4) 0px 2px 4px, rgba(black, 0.3) 0px 7px 13px -3px,
     rgba(black, 0.2) 0px -3px 0px inset;
 }
 
+@mixin text-shorten($numLines: 1) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  @supports (-webkit-line-clamp: $numLines) {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $numLines;
+    text-overflow: ellipsis;
+    white-space: initial;
+  }
+}
+
+// Animations
 @mixin spin {
   position: relative;
   width: 100px;
@@ -50,31 +52,29 @@
     -webkit-animation: spin 1.5s linear infinite;
     animation: spin 1.5s linear infinite;
   }
+  @keyframes spin {
+    from {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+
+    to {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
 }
 
-@keyframes spin {
-  from {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
+@mixin fadeIn($duration) {
+  animation: fadeIn $duration ease forwards;
 
-  to {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
 
-@mixin text-shorten($numLines: 1) {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-
-  @supports (-webkit-line-clamp: $numLines) {
-    display: -webkit-box;
-    overflow: hidden;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: $numLines;
-    text-overflow: ellipsis;
-    white-space: initial;
+    100% {
+      opacity: 1;
+    }
   }
 }
