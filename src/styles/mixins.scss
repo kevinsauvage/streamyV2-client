@@ -78,3 +78,25 @@
     }
   }
 }
+
+@mixin animate-list($count, $delay) {
+  @for $i from 1 through $count {
+    li:nth-child(#{$i}) {
+      animation: fade-in 1s ease both;
+      animation-delay: ($i - 1) * $delay;
+      animation-iteration-count: infinite;
+    }
+    li:first-child {
+      animation-delay: 0s;
+    }
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1;
+  }
+}

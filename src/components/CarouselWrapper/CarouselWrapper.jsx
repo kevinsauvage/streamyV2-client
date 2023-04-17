@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 
 import apiHelper from '../../helpers/apiHelper';
 import Carousel from '../Carousel/Carousel';
+import CarouselSkeleton from '../CarouselSkeleton/CarouselSkeleton';
 import MovieCard from '../MovieCard/MovieCard';
 import Title from '../Title/Title';
 
@@ -38,24 +39,25 @@ const CarouselWrapper = ({ url, title, type }) => {
   // TODO: Improve error handling
   if (error) return <p>Something went wrong</p>;
 
-  // Need to return if movie array is empty
-  if (movies.length === 0) return;
-
   return (
     <div className={styles.container}>
       <Title title={title} />
-      <Carousel
-        arrowLeftStyle={{ left: '-3rem' }}
-        arrowRightStyle={{ right: '-3rem' }}
-        itemToShow={getItemsToShow()}
-        showIndicators
-        padding={10}
-        loading={loading}
-      >
-        {movies.map((item) => (
-          <MovieCard movie={item} key={item.id} type={type} />
-        ))}
-      </Carousel>
+      {loading ? (
+        <CarouselSkeleton itemToShow={5} padding={10} />
+      ) : (
+        <Carousel
+          arrowLeftStyle={{ left: '-3rem' }}
+          arrowRightStyle={{ right: '-3rem' }}
+          itemToShow={getItemsToShow()}
+          showIndicators
+          padding={10}
+          loading={loading}
+        >
+          {movies.map((item) => (
+            <MovieCard movie={item} key={item.id} type={type} />
+          ))}
+        </Carousel>
+      )}
     </div>
   );
 };
