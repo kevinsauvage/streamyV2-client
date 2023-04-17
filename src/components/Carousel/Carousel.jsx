@@ -1,4 +1,4 @@
-import { Children, cloneElement, useRef } from 'react';
+import { Children, cloneElement } from 'react';
 import { SlArrowLeft, SlArrowRight } from 'react-icons/sl';
 
 import Indicators from './Indicators/Indicators';
@@ -14,15 +14,12 @@ const Carousel = ({
   arrowLeftStyle,
   arrowRightStyle,
 }) => {
-  const carousel = useRef();
-
   const { handleTouchEnd, handleTouchMove, handleTouchStart, page, updateActive, childrensCount } =
-    useCarouselFonctions(carousel, children, itemToShow);
+    useCarouselFonctions(children, itemToShow);
 
   return (
     <>
       <div
-        ref={carousel}
         className={styles.carousel}
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}

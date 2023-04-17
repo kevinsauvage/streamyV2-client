@@ -1,6 +1,6 @@
 import { Children, useCallback, useState } from 'react';
 
-const useCarouselFonctions = (carousel, children, itemToShow) => {
+const useCarouselFonctions = (children, itemToShow) => {
   const [page, setPage] = useState(0);
   const [touchStart, setTouchStart] = useState();
   const [touchEnd, setTouchEnd] = useState();
