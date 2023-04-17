@@ -7,6 +7,14 @@ import Title from '../Title/Title';
 
 import styles from './CarouselWrapper.module.scss';
 
+const getItemsToShow = () => {
+  const { innerWidth } = window || {};
+  if (innerWidth < 500) return 2;
+  if (innerWidth < 800) return 3;
+  if (innerWidth < 1100) return 4;
+  return 5;
+};
+
 const CarouselWrapper = ({ url, title, type }) => {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -36,7 +44,14 @@ const CarouselWrapper = ({ url, title, type }) => {
   return (
     <div className={styles.container}>
       <Title title={title} />
-      <Carousel width={280} padding={10} loading={loading}>
+      <Carousel
+        arrowLeftStyle={{ left: '-3rem' }}
+        arrowRightStyle={{ right: '-3rem' }}
+        itemToShow={getItemsToShow()}
+        showIndicators
+        padding={10}
+        loading={loading}
+      >
         {movies.map((item) => (
           <MovieCard movie={item} key={item.id} type={type} />
         ))}

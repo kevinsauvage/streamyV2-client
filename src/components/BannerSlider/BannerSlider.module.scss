@@ -1,0 +1,13 @@
+@import '../../styles/variable';
+@import '../../styles/mixins';
+@import '../../styles/responsive';
+
+.slide {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 70px);
+
+  @include respond(laptop_s) {
+    height: 100%;
+  }
+}

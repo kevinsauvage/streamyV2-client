@@ -6,18 +6,18 @@ import useCarouselFonctions from './useCarouselFonctions';
 
 import styles from './Carousel.module.scss';
 
-const Carousel = ({ children, width, padding }) => {
+const Carousel = ({
+  children,
+  itemToShow,
+  showIndicators,
+  padding,
+  arrowLeftStyle,
+  arrowRightStyle,
+}) => {
   const carousel = useRef();
 
-  const {
-    handleTouchEnd,
-    handleTouchMove,
-    handleTouchStart,
-    page,
-    itemsShow,
-    updateActive,
-    childrensCount,
-  } = useCarouselFonctions(carousel, children, width);
+  const { handleTouchEnd, handleTouchMove, handleTouchStart, page, updateActive, childrensCount } =
+    useCarouselFonctions(carousel, children, itemToShow);
 
   return (
     <>
@@ -31,6 +31,7 @@ const Carousel = ({ children, width, padding }) => {
         <button
           type="button"
           aria-label="arrow left"
+          style={arrowLeftStyle}
           className={`${styles.arrow} ${styles['arrow-left']}`}
           onClick={() => updateActive(page - 1)}
         >
@@ -41,10 +42,11 @@ const Carousel = ({ children, width, padding }) => {
             <div
               style={{
                 paddingRight: `${padding}px`,
-                width: `${100 / itemsShow}%`,
+                width: `${100 / itemToShow}%`,
               }}
               className={`${styles.item} ${
-                index + 1 <= itemsShow * (page + 1) && index >= (page + 1) * itemsShow - itemsShow
+                index + 1 <= itemToShow * (page + 1) &&
+                index >= (page + 1) * itemToShow - itemToShow
                   ? ''
                   : styles.inactive
               }`}
@@ -55,6 +57,7 @@ const Carousel = ({ children, width, padding }) => {
         </div>
         <button
           type="button"
+          style={arrowRightStyle}
           aria-label="arrow right"
           className={`${styles.arrow} ${styles['arrow-right']}`}
           onClick={() => updateActive(page + 1)}
@@ -62,11 +65,11 @@ const Carousel = ({ children, width, padding }) => {
           <SlArrowRight />
         </button>
       </div>
-      {itemsShow && (
+      {showIndicators && (
         <Indicators
           page={page}
           updateActive={updateActive}
-          itemsShow={itemsShow}
+          itemsShow={itemToShow}
           childrensCount={childrensCount}
         />
       )}

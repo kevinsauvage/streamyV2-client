@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 import Container from '../../components/Container/Container';
 import Form from '../../components/Form/Form';
 import FormBottom from '../../components/FormBottom/FormBottom';
-import FormRow from '../../components/formRow/FormRow';
+import FormRow from '../../components/FormRow/FormRow';
 import Input from '../../components/input/Input';
 import { AuthContext } from '../../context/AuthContext';
 import validateEmail from '../../helpers/validateEmail';

@@ -22,17 +22,16 @@ const BigMovieCard = ({ movie, title, type }) => {
   } = movie || {};
 
   return (
-    <div className={styles.card}>
-      <img
-        className={styles.image}
-        src={`${window.innerWidth < 500 ? image.url.w780 : image.url.w1280}${backdrop_path}`}
-        alt={original_title || original_name}
-        width="2000"
-        height="1125"
-        loading="lazy"
-      />
-      <div className={styles.details}>
-        <Container>
+    <div
+      className={styles.card}
+      style={{
+        backgroundImage: `url('${
+          window.innerWidth < 500 ? image.url.w780 : image.url.w1280
+        }${backdrop_path}')`,
+      }}
+    >
+      <Container>
+        <div className={styles.details}>
           <p className={styles.title}>{title}</p>
           <Link to={`/${type || media_type}/${id}`}>
             <h2 className={styles.name}>{original_title || original_name}</h2>
@@ -48,8 +47,8 @@ const BigMovieCard = ({ movie, title, type }) => {
           </div>
           <p className={styles.overview}>{overview}</p>
           <CardBtns movie={movie} type={media_type === 'tv' ? 'show' : media_type} />
-        </Container>
-      </div>
+        </div>
+      </Container>
     </div>
   );
 };

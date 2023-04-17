@@ -1,29 +1,21 @@
-import { Children, useCallback, useLayoutEffect, useState } from 'react';
+import { Children, useCallback, useState } from 'react';
 
-const useCarouselFonctions = (carousel, children, width) => {
+const useCarouselFonctions = (carousel, children, itemToShow) => {
   const [page, setPage] = useState(0);
   const [touchStart, setTouchStart] = useState();
   const [touchEnd, setTouchEnd] = useState();
   const childrensCount = Children.count(children);
-  const [itemsShow, setItemsShow] = useState(0);
-
-  // HANDLE RESPONSIVNESS
-  useLayoutEffect(() => {
-    if (carousel.current) {
-      setItemsShow(Math.ceil(carousel.current.offsetWidth / Number(width)));
-    }
-  }, [carousel, width]);
 
   // PAGE CHANGE
   const updateActive = useCallback(
     (newIndex) => {
       setTouchEnd();
       setTouchStart();
-      if (newIndex < 0) setPage(childrensCount / itemsShow - 1);
-      else if (newIndex >= childrensCount / itemsShow) setPage(0);
+      if (newIndex < 0) setPage(childrensCount / itemToShow - 1);
+      else if (newIndex >= childrensCount / itemToShow) setPage(0);
       else setPage(newIndex);
     },
-    [childrensCount, itemsShow]
+    [childrensCount, itemToShow]
   );
 
   // SLIDER
@@ -41,7 +33,6 @@ const useCarouselFonctions = (carousel, children, width) => {
     handleTouchEnd,
     handleTouchMove,
     handleTouchStart,
-    itemsShow,
     page,
     updateActive,
   };

@@ -5,11 +5,11 @@
   width: 100%;
   max-width: 1440px;
   height: fit-content;
-  padding: 0 3rem;
+  padding: 0 4rem;
   margin: 0 auto;
 
   @include respond(tablet) {
-    padding: 0 2rem;
+    padding: 0 3rem;
   }
 
   @include respond(mobile_l) {
