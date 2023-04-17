@@ -20,23 +20,23 @@ const List = lazy(() => import('./pages/List/List'));
 const Account = lazy(() => import('./pages/Account/Account'));
 
 const App = () => (
-  <div className="App">
+  <div>
     <Header />
     <Suspense fallback={<PageLoader />}>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/movie" element={<Movies />} />
-        <Route exact path="/show" element={<Shows />} />
+        <Route path="/show" element={<Shows />} />
         <Route path="/filter" element={<Filter />} />
         <Route path="/search" element={<Search />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/:type/:id" element={<Play />} />
-        <Route exact path="/login" element={<Login />} />
-        <Route exact path="/register" element={<Register />} />
-        <Route exact path="/account" element={<PrivateRoute />}>
-          <Route exact path="/account" element={<Account />} />
+        <Route path="/account" element={<PrivateRoute />}>
+          <Route path="/account" element={<Account />} />
         </Route>
-        <Route exact path="/list" element={<PrivateRoute />}>
-          <Route exact path="/list" element={<List />} />
+        <Route path="/list" element={<PrivateRoute />}>
+          <Route path="/list" element={<List />} />
         </Route>
       </Routes>
     </Suspense>
