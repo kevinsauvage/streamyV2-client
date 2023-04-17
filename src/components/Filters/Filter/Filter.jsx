@@ -2,7 +2,7 @@ import { useRef, useState } from 'react';
 
 import useClickOutside from '../../../hooks/useClickOutside';
 
-import './FilterBox.scss';
+import styles from './Filter.module.scss';
 
 const FilterBox = ({ items, handleUpdateItems, label, icon, checkedFunction, grid, column }) => {
   const [open, setOpen] = useState(false);
@@ -14,19 +14,19 @@ const FilterBox = ({ items, handleUpdateItems, label, icon, checkedFunction, gri
   useClickOutside(box, () => setOpen(false));
 
   return (
-    <div className="FilterBox" ref={box}>
+    <div className={styles.filter} ref={box}>
       <button
         type="button"
         ref={inputReference}
-        className={`FilterBox__visible ${open && 'FilterBox__visible--open'}`}
+        className={`${styles.button} ${open && styles.open}`}
         onClick={() => setOpen(!open)}
       >
-        {icon} <p className="FilterBox__label">{label}</p>
+        {icon} <p className={styles.label}>{label}</p>
       </button>
       {open && (
-        <div className="FilterBox__dropBox">
+        <div className={styles.dropdown}>
           <ul
-            className="FilterBox__list"
+            className={styles.list}
             style={{
               display: grid && 'grid',
               gridTemplateColumns: `repeat(${column}, 1fr )`,
@@ -34,7 +34,7 @@ const FilterBox = ({ items, handleUpdateItems, label, icon, checkedFunction, gri
           >
             {items?.length > 0 &&
               items.map((item) => (
-                <li key={item.name} className="FilterBox__listItem">
+                <li key={item.name} className={styles.item}>
                   <button
                     type="button"
                     onClick={() => {

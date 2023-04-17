@@ -7,7 +7,7 @@ import { RiFilter2Fill } from 'react-icons/ri';
 import ratings from '../../data/rating';
 import sorting from '../../data/sorting';
 
-import FilterBox from './FilterBox/FilterBox';
+import Filter from './Filter/Filter';
 
 import styles from './Filters.module.scss';
 
@@ -16,7 +16,7 @@ const Filters = ({ checkQueryParameters, genres, handleFilterClick, resetForm, y
 
   return (
     <div className={styles.filters}>
-      <FilterBox
+      <Filter
         items={[{ name: 'Movie' }, { name: 'Tv-series' }]}
         handleUpdateItems={(item) => {
           resetForm({ page: '1', sorting: 'popularity.desc', type: item.name });
@@ -25,7 +25,7 @@ const Filters = ({ checkQueryParameters, genres, handleFilterClick, resetForm, y
         label="Type"
         checkedFunction={(item) => checkQueryParameters({ type: item.name })}
       />
-      <FilterBox
+      <Filter
         items={years}
         handleUpdateItems={(item) => handleFilterClick({ years: item.name })}
         icon={<FaRegCalendarAlt />}
@@ -34,14 +34,14 @@ const Filters = ({ checkQueryParameters, genres, handleFilterClick, resetForm, y
         column={innerWidth < 600 ? 4 : 6}
         checkedFunction={(item) => checkQueryParameters({ years: item.name })}
       />
-      <FilterBox
+      <Filter
         items={ratings}
         handleUpdateItems={(item) => handleFilterClick({ ratings: item.value })}
         icon={<CgArrowTopRightR />}
         label="Rating"
         checkedFunction={(item) => checkQueryParameters({ ratings: item.value })}
       />
-      <FilterBox
+      <Filter
         items={genres}
         handleUpdateItems={(item) => handleFilterClick({ genres: item.id })}
         icon={<AiFillFolderOpen />}
@@ -50,7 +50,7 @@ const Filters = ({ checkQueryParameters, genres, handleFilterClick, resetForm, y
         column={innerWidth < 800 ? 2 : 3}
         checkedFunction={(item) => checkQueryParameters({ genres: item.id })}
       />
-      <FilterBox
+      <Filter
         items={sorting}
         handleUpdateItems={(item) => handleFilterClick({ sorting: item.value })}
         icon={<FaSortAmountUp />}
