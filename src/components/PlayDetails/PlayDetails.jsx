@@ -10,7 +10,7 @@ import { image } from '../../helpers/requests';
 import PlaceholderImage from '../../images/placeholder.png';
 import CreditBox from '../CreditBox/CreditBox';
 
-import './PlayDetails.scss';
+import styles from './PlayDetails.module.scss';
 
 const PlayDetails = ({ movie, playTrailer, type }) => {
   const { addToMovieList, removeFromMovieList, userMovies } = useContext(UserContext);
@@ -31,54 +31,52 @@ const PlayDetails = ({ movie, playTrailer, type }) => {
   } = movie;
 
   return (
-    <div className="play-details">
+    <div className={styles.container}>
       <img
-        className="play-details__image"
+        className={styles.image}
         src={poster_path ? `${image.url.w500}${poster_path}` : PlaceholderImage}
         alt={original_title || original_name}
         width="185"
         height="278"
       />
 
-      <div className="play-details__info">
+      <div className={styles.details}>
         <div>
-          <h6 className="play-details__info-title">{name || original_title || original_name}</h6>
-          <p className="play-details__info-tagline">
+          <h6 className={styles.title}>{name || original_title || original_name}</h6>
+          <p className={styles.tagline}>
             <i>{tagline}</i>
           </p>
-          <div className="play-details__info-row">
-            <p className="play-details__info-release">
+          <div className={styles.row}>
+            <p className={styles.release}>
               {extractYearFromDate(release_date) || extractYearFromDate(first_air_date)}
             </p>
-            <p className="play-details__info-average">
+            <p className={styles.average}>
               <span>{Math.ceil(vote_average.toFixed(2))}</span> / 10
             </p>
             {(media_type || type) && (
-              <p className="play-details__info-type">
-                {media_type === 'tv' ? 'show' : type || media_type}
-              </p>
+              <p className={styles.type}>{media_type === 'tv' ? 'show' : type || media_type}</p>
             )}
           </div>
-          <div className="play-details__info-genres">
+          <div className={styles.genres}>
             {genres?.map((item) => (
-              <p key={item.name} className="play-details__info-genres-genre">
+              <p key={item.name} className={styles.genre}>
                 {item.name}
               </p>
             ))}
           </div>
-          <p className="play-details__info-overview">{overview}</p>
+          <p className={styles.overview}>{overview}</p>
           <CreditBox credits={credits} />
         </div>
 
-        <div className="play-details__info-btns">
-          <button type="button" className="play-details__info-btn" onClick={playTrailer}>
+        <div className={styles.buttons}>
+          <button type="button" className={styles.button} onClick={playTrailer}>
             <BsPlayFill /> Play Trailer
           </button>
 
           {userMovies && movie && userMovies.map((item) => item.id).includes(id) ? (
             <button
               type="button"
-              className="play-details__info-btn"
+              className={styles.button}
               onClick={() => removeFromMovieList(movie)}
             >
               <MdRemoveCircleOutline />
@@ -87,7 +85,7 @@ const PlayDetails = ({ movie, playTrailer, type }) => {
           ) : (
             <button
               type="button"
-              className="play-details__info-btn"
+              className={styles.button}
               onClick={() => addToMovieList(movie, type)}
             >
               <IoMdAdd />
