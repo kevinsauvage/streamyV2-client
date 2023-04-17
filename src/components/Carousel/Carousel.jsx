@@ -4,7 +4,7 @@ import { SlArrowLeft, SlArrowRight } from 'react-icons/sl';
 import Indicators from './Indicators/Indicators';
 import useCarouselFonctions from './useCarouselFonctions';
 
-import './Carousel.scss';
+import styles from './Carousel.module.scss';
 
 const Carousel = ({ children, width, padding }) => {
   const carousel = useRef();
@@ -23,7 +23,7 @@ const Carousel = ({ children, width, padding }) => {
     <>
       <div
         ref={carousel}
-        className="Carousel"
+        className={styles.carousel}
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
         onTouchMove={handleTouchMove}
@@ -31,22 +31,22 @@ const Carousel = ({ children, width, padding }) => {
         <button
           type="button"
           aria-label="arrow left"
-          className="Carousel__arrow--left Carousel__arrow"
+          className={`${styles.arrow} ${styles['arrow-left']}`}
           onClick={() => updateActive(page - 1)}
         >
           <SlArrowLeft />
         </button>
-        <div className="Carousel__inner" style={{ transform: `translateX(-${page * 100}%)` }}>
+        <div className={styles.inner} style={{ transform: `translateX(-${page * 100}%)` }}>
           {Children.map(children || undefined, (child, index) => (
             <div
               style={{
                 paddingRight: `${padding}px`,
                 width: `${100 / itemsShow}%`,
               }}
-              className={`Carousel__item ${
+              className={`${styles.item} ${
                 index + 1 <= itemsShow * (page + 1) && index >= (page + 1) * itemsShow - itemsShow
                   ? ''
-                  : 'inactive'
+                  : styles.inactive
               }`}
             >
               {cloneElement(child)}
@@ -56,7 +56,7 @@ const Carousel = ({ children, width, padding }) => {
         <button
           type="button"
           aria-label="arrow right"
-          className="Carousel__arrow--right Carousel__arrow"
+          className={`${styles.arrow} ${styles['arrow-right']}`}
           onClick={() => updateActive(page + 1)}
         >
           <SlArrowRight />
