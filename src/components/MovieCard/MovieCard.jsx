@@ -7,20 +7,20 @@ import { image } from '../../helpers/requests';
 import PlaceholderImage from '../../images/placeholder.png';
 import CardBtns from '../CardBtns/CardBtns';
 
-import './MovieCard.scss';
+import styles from './MovieCard.module.scss';
 
 const MovieCard = ({ movie, type }) => {
   const card = useRef(null);
   const { original_name, original_title, poster_path } = movie || {};
 
   return (
-    <div className="movie-card" ref={card}>
-      <div className="movie-card__imgWrapper">
-        <div className="movie-card__imgWrapper-hover">
-          <CardBtns movie={movie} type={type} className="movie-card__imgWrapper-hover__buttons" />
-        </div>
+    <div className={styles.card} ref={card}>
+      <div className={styles.hover}>
+        <CardBtns movie={movie} type={type} className={styles['hover-buttons']} />
+      </div>
+      <div className={styles['image-container']}>
         <img
-          className="movie-card__img"
+          className={styles.image}
           loading="lazy"
           src={
             poster_path
@@ -32,20 +32,20 @@ const MovieCard = ({ movie, type }) => {
           height="278"
         />
       </div>
-      <div className="movie-card__detail">
+      <div className={styles.details}>
         <Link to={`/${type || movie?.media_type}/${movie.id}`}>
-          <p className="movie-card__title">
+          <p className={styles.title}>
             {movie?.title || movie?.original_title || movie?.original_name || ''}
           </p>
         </Link>
-        <p className="movie-card__release">
+        <p className={styles.release}>
           {extractYearFromDate(movie?.release_date) || extractYearFromDate(movie?.first_air_date)}
         </p>
-        <p className="movie-card__average">
+        <p className={styles.average}>
           <span>{movie?.vote_average?.toFixed()}</span> / 10
         </p>
         {(movie?.media_type || type) && (
-          <p className="movie-card__genre">
+          <p className={styles.genre}>
             {movie?.media_type === 'tv' ? 'show' : type || movie?.media_type}
           </p>
         )}
