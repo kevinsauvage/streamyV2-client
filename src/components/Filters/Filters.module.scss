@@ -1,0 +1,33 @@
+@import '../../styles/mixins';
+
+.filters {
+  position: relative;
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--primary);
+  color: var(--on-surface-100);
+  cursor: pointer;
+  @include blackShadow;
+
+  svg {
+    margin-right: 6px;
+    color: var(--on-surface-100);
+    font-size: 20px;
+  }
+
+  p {
+    font-size: 1rem;
+    font-weight: 600;
+  }
+}

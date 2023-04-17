@@ -9,13 +9,13 @@ import sorting from '../../data/sorting';
 
 import FilterBox from './FilterBox/FilterBox';
 
-import './Filters.scss';
+import styles from './Filters.module.scss';
 
 const Filters = ({ checkQueryParameters, genres, handleFilterClick, resetForm, years }) => {
   const { innerWidth } = window;
 
   return (
-    <div className="filters">
+    <div className={styles.filters}>
       <FilterBox
         items={[{ name: 'Movie' }, { name: 'Tv-series' }]}
         handleUpdateItems={(item) => {
@@ -57,7 +57,7 @@ const Filters = ({ checkQueryParameters, genres, handleFilterClick, resetForm, y
         label="Sorting"
         checkedFunction={(item) => checkQueryParameters({ sorting: item.value })}
       />
-      <button type="button" className="filters__btn" onClick={() => resetForm()}>
+      <button type="button" className={styles.button} onClick={() => resetForm()}>
         <RiFilter2Fill /> <p>Reset</p>
       </button>
     </div>
