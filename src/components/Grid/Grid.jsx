@@ -1,5 +1,9 @@
-import './Grid.scss';
+import styles from './Grid.module.scss';
 
-const Grid = ({ children }) => <div className="Grid">{children}</div>;
+const Grid = ({ children, ...rest }) => (
+  <div className={styles.grid} {...rest}>
+    {children}
+  </div>
+);
 
 export default Grid;
