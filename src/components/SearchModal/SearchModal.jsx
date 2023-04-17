@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { stopScroll, unstopScroll } from '../../helpers/scroll';
 
-import './SearchModal.scss';
+import styles from './SearchModal.module.scss';
 
 const SearchModal = ({ displaySearch, setDisplaySearch }) => {
   const navigate = useNavigate();
@@ -26,22 +26,22 @@ const SearchModal = ({ displaySearch, setDisplaySearch }) => {
   if (!displaySearch) return <div />;
 
   return (
-    <div className="search-modal">
+    <div className={styles.modal}>
       <AiOutlineCloseSquare
-        className="search-modal__close"
+        className={styles.close}
         onClick={() => {
           setDisplaySearch(false);
         }}
       />
-      <form className="search-modal__container" onSubmit={handleSubmit}>
+      <form className={styles.container} onSubmit={handleSubmit}>
         <input
           value={query}
           type="text"
           placeholder="Search"
-          className="search-modal__input"
+          className={styles.input}
           onChange={({ target }) => setQuery(target.value)}
         />
-        <ImSearch className="search-modal__icon" onClick={handleSubmit} />
+        <ImSearch className={styles.icon} onClick={handleSubmit} />
       </form>
     </div>
   );
