@@ -4,7 +4,7 @@ import { SlArrowLeft, SlArrowRight } from 'react-icons/sl';
 import apiHelper from '../../helpers/apiHelper';
 import BigMovieCard from '../BigMovieCard/BigMovieCard';
 
-import './Slide.scss';
+import styles from './Slide.module.scss';
 
 const Slide = ({ url }) => {
   const [trendingMovies, setTrendingMovies] = useState([]);
@@ -54,20 +54,20 @@ const Slide = ({ url }) => {
 
   return (
     <div
-      className="Slide"
+      className={styles.slide}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
       onTouchMove={handleTouchMove}
     >
       {loading ? (
-        <div className="Slide__loader">
+        <div className={styles.loader}>
           <div />
         </div>
       ) : (
         <>
           <button
             type="button"
-            className="Slide__arrow Slide__arrow--left"
+            className={`${styles.arrow} ${styles.left}`}
             onClick={() => updateIndex(index - 1)}
           >
             <SlArrowLeft />
@@ -76,7 +76,7 @@ const Slide = ({ url }) => {
           <BigMovieCard movie={trendingMovies?.[index]} title="TRENDING" animate={animate} />
           <button
             type="button"
-            className="Slide__arrow Slide__arrow--right"
+            className={`${styles.arrow} ${styles.right}`}
             onClick={() => updateIndex(index + 1)}
           >
             <SlArrowRight />
