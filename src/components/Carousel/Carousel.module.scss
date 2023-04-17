@@ -1,5 +1,6 @@
 @import '../../styles/variable';
 @import '../../styles/responsive';
+@import '../../styles/mixins';
 
 .carousel {
   position: relative;
@@ -35,6 +36,7 @@
         height: 100%;
         background-color: rgba(var(--rgb-surface-900), 0.8);
         content: '';
+        @include fadeIn(1s);
       }
     }
   }
