@@ -14,7 +14,7 @@ import { UserContext } from '../../context/UserContext';
 import { getItem } from '../../helpers/sessionStorage';
 import useClickOutside from '../../hooks/useClickOutside';
 
-import './UserMenu.scss';
+import styles from './UserMenu.module.scss';
 
 const UserMenu = ({ displayUserMenu, setDisplayUserMenu, setDisplaySearch }) => {
   const userMenuReference = useRef(null);
@@ -23,10 +23,10 @@ const UserMenu = ({ displayUserMenu, setDisplayUserMenu, setDisplaySearch }) => 
   useClickOutside(userMenuReference, () => setDisplayUserMenu(false));
 
   return (
-    <div className="user-menu" ref={userMenuReference}>
+    <div className={styles.menu} ref={userMenuReference}>
       <button
         type="button"
-        className="user-menu__button user-menu__button-search"
+        className={`${styles.button} ${styles.search}`}
         onClick={() => {
           setDisplaySearch(true);
           setDisplayUserMenu(false);
@@ -36,29 +36,29 @@ const UserMenu = ({ displayUserMenu, setDisplayUserMenu, setDisplaySearch }) => 
       </button>
       <button
         type="button"
-        className="user-menu__button user-menu__button-avatar"
+        className={`${styles.button} ${styles.avatar}`}
         onClick={() => setDisplayUserMenu((previous) => !previous)}
       >
         <FaUserAlt />
       </button>
       {displayUserMenu && (
-        <nav className="user-menu__navigation">
-          <ul className="user-menu__navigation-list">
+        <nav className={styles.navigation}>
+          <ul className={styles.list}>
             {getItem('user_token_streamy') ? (
               <>
-                <li className="user-menu__navigation-item">
+                <li className={styles['list-item']}>
                   <Link to="/account">
                     <MdOutlineAccountCircle />
                     Account
                   </Link>
                 </li>
-                <li className="user-menu__navigation-item">
+                <li className={styles['list-item']}>
                   <Link to="/list">
                     <MdOutlineMovieFilter />
                     Watch List
                   </Link>
                 </li>
-                <li className="user-menu__navigation-item">
+                <li className={styles['list-item']}>
                   <button type="button" onClick={handleLogOut}>
                     <MdLogout />
                     Logout
@@ -67,13 +67,13 @@ const UserMenu = ({ displayUserMenu, setDisplayUserMenu, setDisplaySearch }) => 
               </>
             ) : (
               <>
-                <li className="user-menu__navigation-item">
+                <li className={styles['list-item']}>
                   <Link to="/register">
                     <MdAppRegistration />
                     REGISTER
                   </Link>
                 </li>
-                <li className="user-menu__navigation-item">
+                <li className={styles['list-item']}>
                   <Link to="/login">
                     <MdLogin />
                     LOGIN

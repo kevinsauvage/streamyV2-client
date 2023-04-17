@@ -1,52 +1,52 @@
 @import '../../styles/mixins';
 
-.user-menu {
+.menu {
   position: relative;
   display: flex;
   height: 100%;
   align-items: center;
   gap: 2rem;
+}
 
-  &__button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: none;
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
 
-    &-search {
-      background-color: transparent;
-      cursor: pointer;
+  &.search {
+    background-color: transparent;
+    cursor: pointer;
 
-      svg {
-        color: var(--on-surface-100);
-        font-size: 24px;
-      }
-    }
-
-    &-avatar {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background-color: var(--primary);
+    svg {
       color: var(--on-surface-100);
-      cursor: pointer;
-      @include blackShadow;
+      font-size: 24px;
     }
   }
 
-  &__navigation {
-    position: absolute;
-    z-index: 9999999999;
-    top: 100%;
-    right: 0;
-    width: fit-content;
-    border: 1px solid var(--primary);
-    border-radius: 4px;
-    background-color: var(--surface-700);
+  &.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--primary);
+    color: var(--on-surface-100);
+    cursor: pointer;
+    @include blackShadow;
+  }
+}
 
-    &-list {
-      width: 100%;
-    }
+.navigation {
+  position: absolute;
+  z-index: 9999999999;
+  top: 100%;
+  right: 0;
+  width: fit-content;
+  border: 1px solid var(--primary);
+  border-radius: 4px;
+  background-color: var(--surface-700);
+
+  .list {
+    width: 100%;
 
     &-item {
       display: flex;
