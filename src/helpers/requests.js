@@ -211,16 +211,16 @@ const requests = {
 
 export const image = {
   url: {
-    original: 'https://image.tmdb.org/t/p/original/',
-    w1000: 'https://image.tmdb.org/t/p/w1000/',
-    w1280: 'https://image.tmdb.org/t/p/w1280/',
-    w185: 'https://image.tmdb.org/t/p/w185/',
-    w1920: 'https://image.tmdb.org/t/p/w1920/',
-    w300: 'https://image.tmdb.org/t/p/w300/',
-    w342: 'https://image.tmdb.org/t/p/w342/',
-    w500: 'https://image.tmdb.org/t/p/w500/',
-    w700: 'https://image.tmdb.org/t/p/w700/',
-    w780: 'https://image.tmdb.org/t/p/w780/',
+    original: 'https://image.tmdb.org/t/p/original',
+    w1000: 'https://image.tmdb.org/t/p/w1000',
+    w1280: 'https://image.tmdb.org/t/p/w1280',
+    w185: 'https://image.tmdb.org/t/p/w185',
+    w1920: 'https://image.tmdb.org/t/p/w1920',
+    w300: 'https://image.tmdb.org/t/p/w300',
+    w342: 'https://image.tmdb.org/t/p/w342',
+    w500: 'https://image.tmdb.org/t/p/w500',
+    w700: 'https://image.tmdb.org/t/p/w700',
+    w780: 'https://image.tmdb.org/t/p/w780',
   },
 };
 
