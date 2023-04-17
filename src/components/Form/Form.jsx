@@ -1,18 +1,18 @@
-import './Form.scss';
+import styles from './Form.module.scss';
 
 const Form = ({ children, title, subtitle, handleSubmit, btnText, loading, className }) => (
-  <div className={`Form ${className || ''}`}>
-    <p className="Form__title">{title}</p>
-    {subtitle && <p className="Form__subtitle">{subtitle}</p>}
-    <form action="submit" className="Form__form" onSubmit={handleSubmit}>
+  <div className={`${styles.container} ${className || ''}`}>
+    <p className={styles.title}>{title}</p>
+    {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
+    <form action="submit" onSubmit={handleSubmit}>
       {loading ? (
-        <div className="Form__loader">
+        <div className={styles.loader}>
           <div />
         </div>
       ) : (
         <>
           {children}
-          <button type="submit" onClick={handleSubmit} className="Form__form-btn">
+          <button type="submit" onClick={handleSubmit} className={styles.button}>
             <p>{btnText}</p>
           </button>
         </>
