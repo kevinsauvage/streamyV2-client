@@ -1,4 +1,4 @@
-import './CreditBox.scss';
+import styles from './CreditBox.module.scss';
 
 const getActors = (cast, number_) => {
   const actors = Object.values(
@@ -29,16 +29,16 @@ const getProductor = (crew, number_) => {
 };
 
 const CreditBox = ({ credits }) => (
-  <div className="CreditBox">
+  <div className={styles.container}>
     {credits?.crew?.find((item) => item.known_for_department === 'Production') && (
-      <div className="CreditBox__director">
-        <h6 className="CreditBox__title">Productor</h6>
-        <p className="CreditBox__names">{getProductor(credits.crew, 10)}</p>
+      <div className={styles.box}>
+        <h6 className={styles.title}>Productor</h6>
+        <p className={styles.content}>{getProductor(credits.crew, 10)}</p>
       </div>
     )}
-    <div className="CreditBox__cast">
-      <h6 className="CreditBox__title">Cast</h6>
-      <p className="CreditBox__names">{credits?.cast && getActors(credits?.cast, 10)}</p>
+    <div className={styles.box}>
+      <h6 className={styles.title}>Cast</h6>
+      <p className={styles.content}>{credits?.cast && getActors(credits?.cast, 10)}</p>
     </div>
   </div>
 );
