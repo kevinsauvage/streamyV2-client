@@ -20,7 +20,7 @@
 
     svg {
       color: var(--on-surface-100);
-      font-size: 24px;
+      font-size: 1.5rem;
     }
   }
 
@@ -32,6 +32,10 @@
     color: var(--on-surface-100);
     cursor: pointer;
     @include blackShadow;
+
+    svg {
+      font-size: 1rem;
+    }
   }
 }
 
