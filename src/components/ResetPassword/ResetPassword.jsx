@@ -1,4 +1,5 @@
 import { AiOutlineCloseSquare } from 'react-icons/ai';
+import { toast } from 'react-toastify';
 
 import { unstopScroll } from '../../helpers/scroll';
 import validateEmail from '../../helpers/validateEmail';
@@ -12,20 +13,20 @@ import styles from './ResetPassword.module.scss';
 const ResetPassword = ({ setDisplayPassRec }) => {
   const initialState = { email: '' };
 
-  const submitResetPassword = async (formData, setError) => {
+  const submitResetPassword = async (formData) => {
     try {
-      if (!formData.email) return setError('Missing email.');
-      if (!validateEmail(formData.email)) return setError('Invalid email format.');
-      // await sendPasswordResetEmail(auth, formData.email);
-      setError('Email correctly send.');
-      setTimeout(() => setDisplayPassRec(false), 2000);
+      if (!formData.email) return toast.warn('Missing email.');
+      if (!validateEmail(formData.email)) return toast.warn('Invalid email format.');
+      // TODO: Implement email recovery
+      toast.success('Email correctly send.');
+      setDisplayPassRec(false);
     } catch (error) {
-      if (error.code === 'auth/user-not-found') return setError('User not found.');
+      if (error.code === 'auth/user-not-found') return toast.error('User not found.');
       console.error(error);
     }
   };
 
-  const { formData, handleInputChange, handleSubmit, loading, error } = useForm(
+  const { formData, handleInputChange, handleSubmit, loading } = useForm(
     initialState,
     submitResetPassword
   );
@@ -45,7 +46,6 @@ const ResetPassword = ({ setDisplayPassRec }) => {
           title="Forgot Password ?"
           subtitle="You Can Reset Password Using This Form."
           handleSubmit={handleSubmit}
-          error={error}
           loading={loading}
           btnText="SEND"
         >
