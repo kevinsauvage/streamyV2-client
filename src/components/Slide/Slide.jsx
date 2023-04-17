@@ -17,14 +17,9 @@ const Slide = ({ url }) => {
   useEffect(() => {
     if (!url || trendingMovies?.length || error) return;
     apiHelper(url, undefined, 'get')
-      .then((data) => {
-        setLoading(false);
-        setTrendingMovies(data.results);
-      })
-      .catch(() => {
-        setLoading(false);
-        setError(true);
-      });
+      .then((data) => data?.results && setTrendingMovies(data.results))
+      .catch(() => setError(true))
+      .finally(() => setLoading(false));
   }, [error, trendingMovies?.length, url]);
 
   const updateIndex = (newIndex) => {
@@ -45,6 +40,8 @@ const Slide = ({ url }) => {
     if (touchStart - touchEnd < -100) updateIndex(index - 1);
   };
 
+  if (error) return <p>Something went wrong</p>;
+
   return (
     <div
       className={styles.slide}
@@ -53,7 +50,7 @@ const Slide = ({ url }) => {
       onTouchMove={handleTouchMove}
     >
       {loading ? (
-        <div className={styles.loader}>
+        <div className="loader">
           <div />
         </div>
       ) : (

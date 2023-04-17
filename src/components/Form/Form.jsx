@@ -6,7 +6,7 @@ const Form = ({ children, title, subtitle, handleSubmit, btnText, loading, class
     {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
     <form action="submit" onSubmit={handleSubmit}>
       {loading ? (
-        <div className={styles.loader}>
+        <div className="loader">
           <div />
         </div>
       ) : (

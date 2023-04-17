@@ -37,14 +37,3 @@
     font-weight: 700;
   }
 }
-
-.loader {
-  display: flex;
-  height: 200px;
-  align-items: center;
-  justify-content: center;
-
-  div {
-    @include spin;
-  }
-}

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { SlArrowLeft, SlArrowRight } from 'react-icons/sl';
 
 import apiHelper from '../../helpers/apiHelper';
@@ -14,48 +14,59 @@ const Acordeon = ({ url, title, type }) => {
   const [movies, setMovies] = useState([]);
   const [touchStart, setTouchStart] = useState();
   const [touchEnd, setTouchEnd] = useState();
-  const [isSmaller820] = useState(window.innerWidth < 820);
+  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    apiHelper(url, undefined, 'get').then((data) => setMovies(data.results));
+    apiHelper(url, undefined, 'get')
+      .then((data) => data?.results && setMovies(data.results))
+      .catch(() => setError(true))
+      .finally(() => setLoading(false));
   }, [url]);
 
-  const handleNext = () => {
+  const handleNext = useCallback(() => {
     setTouchStart();
     setTouchEnd();
-    if (index >= movies.length - 2) return;
-    return setIndex(index + 1);
-  };
 
-  const handlePrevious = () => {
+    return setIndex((previous) => {
+      if (previous >= movies.length - 2) return previous;
+      return previous + 1;
+    });
+  }, [movies.length]);
+
+  const handlePrevious = useCallback(() => {
     setTouchStart();
     setTouchEnd();
-    if (isSmaller820 && index <= 0) return;
-    if (index <= -1) return;
-    return setIndex(index - 1);
-  };
+
+    return setIndex((previous) => {
+      if (previous <= -1) return previous;
+      return previous - 1;
+    });
+  }, []);
 
   // SLIDER
-  const handleTouchStart = (event) => setTouchStart(event.targetTouches[0].clientX);
+  const handleTouchStart = useCallback(
+    (event) => setTouchStart(event.targetTouches[0].clientX),
+    []
+  );
 
-  const handleTouchMove = (event) => setTouchEnd(event.targetTouches[0].clientX);
+  const handleTouchMove = useCallback((event) => setTouchEnd(event.targetTouches[0].clientX), []);
 
-  const handleTouchEnd = () => {
+  const handleTouchEnd = useCallback(() => {
     if (touchStart - touchEnd > 100) handleNext();
     if (touchStart - touchEnd < -100) handlePrevious();
-  };
+  }, [handleNext, handlePrevious, touchEnd, touchStart]);
 
-  const activeLeft = (index_) => {
-    if (isSmaller820) return index - 1 === index_;
-    return index === -1 ? false : index_ === index;
-  };
+  const activeLeft = useCallback((index_) => (index === -1 ? false : index_ === index), [index]);
 
-  const activeRight = (index_) => {
-    if (isSmaller820) return index + 1 === index_;
-    return index === -1 ? index_ === 1 : index_ === index + 2;
-  };
+  const activeRight = useCallback(
+    (index_) => (index === -1 ? index_ === 1 : index_ === index + 2),
+    [index]
+  );
 
   if (!movies?.length) return;
+
+  if (error) return <p>Something went wrong...</p>;
 
   return (
     <Container>
@@ -65,8 +76,8 @@ const Acordeon = ({ url, title, type }) => {
         onTouchEnd={handleTouchEnd}
         onTouchMove={handleTouchMove}
       >
-        {movies.length === 0 ? (
-          <div className={styles.loader}>
+        {loading ? (
+          <div className="loader">
             <div />
           </div>
         ) : (
@@ -85,11 +96,7 @@ const Acordeon = ({ url, title, type }) => {
                 className={styles.inner}
                 style={{
                   transform:
-                    index === -1
-                      ? `translateX(${isSmaller820 ? 0 : 33.333_33}%)`
-                      : `translateX(-${
-                          isSmaller820 ? (index - 1) * 33.333_33 : index * 33.333_33
-                        }%)`,
+                    index === -1 ? `translateX(${100 / 3}%)` : `translateX(-${index * 33.333_33}%)`,
                 }}
               >
                 {movies.map((movie, index_) => (
@@ -97,7 +104,7 @@ const Acordeon = ({ url, title, type }) => {
                     movie={movie}
                     key={movie.id}
                     type={type}
-                    active={isSmaller820 ? index === index_ : index_ === index + 1}
+                    active={index_ === index + 1}
                     activeLeft={activeLeft(index_)}
                     activeRight={activeRight(index_)}
                   />

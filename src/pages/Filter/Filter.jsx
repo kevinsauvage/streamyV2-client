@@ -10,8 +10,16 @@ import Page from '../../layouts/Page/Page';
 const Filter = () => {
   const isBottom = useIsBottom();
 
-  const { resetForm, movies, handleFilterClick, years, checkQueryParameters, genres, type } =
-    useFilter(isBottom);
+  const {
+    resetForm,
+    movies,
+    handleFilterClick,
+    years,
+    checkQueryParameters,
+    genres,
+    type,
+    loading,
+  } = useFilter(isBottom);
 
   return (
     <Page>
@@ -30,6 +38,11 @@ const Filter = () => {
               <MovieCard key={movie.id} movie={movie} type={type?.split('-')[0].toLowerCase()} />
             ))}
         </Grid>
+        {loading && (
+          <div className="loader" style={{ minHeight: '300px' }}>
+            <div />
+          </div>
+        )}
       </Container>
     </Page>
   );

@@ -31,22 +31,6 @@
   }
 }
 
-.loader {
-  display: flex;
-  width: 100%;
-  height: calc(100vh - 70px);
-  align-items: center;
-  justify-content: center;
-
-  div {
-    @include spin;
-  }
-
-  @include respond(tablet) {
-    height: 50vh;
-  }
-}
-
 .arrow {
   position: absolute;
   z-index: 9999;

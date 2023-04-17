@@ -53,14 +53,9 @@ const Play = () => {
     if (url) {
       setLoading(true);
       apiHelper(url, undefined, 'get')
-        .then((data) => {
-          setLoading(false);
-          setMovie(data);
-        })
-        .catch(() => {
-          setLoading(false);
-          navigate('/');
-        });
+        .then((data) => setMovie(data))
+        .catch(() => navigate('/'))
+        .finally(() => setLoading(false));
     }
   }, [id, navigate, type]);
 

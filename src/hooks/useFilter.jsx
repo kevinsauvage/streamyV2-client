@@ -13,6 +13,7 @@ const STEP_YEAR = 1;
 const useFilter = (isBottom) => {
   const [movies, setMovies] = useState([]);
   const [genres, setGenres] = useState();
+  const [loading, setLoading] = useState(true);
   const [years] = useState(() =>
     range(START_YEAR, new Date().getFullYear(), STEP_YEAR).map((item) => ({ name: `${item}` }))
   );
@@ -56,35 +57,41 @@ const useFilter = (isBottom) => {
   );
 
   const fetchData = useCallback(async () => {
-    const {
-      genresParameters,
-      pageParameter,
-      ratingsParameter,
-      sortingParameter,
-      typeParameter,
-      yearsParameters,
-    } = getParameters();
+    try {
+      const {
+        genresParameters,
+        pageParameter,
+        ratingsParameter,
+        sortingParameter,
+        typeParameter,
+        yearsParameters,
+      } = getParameters();
 
-    if (!sortingParameter || !typeParameter) return;
+      if (!sortingParameter || !typeParameter) return;
 
-    const baseUrl = requests.getFilters.url.replace(
-      '{type}',
-      typeParameter?.toLowerCase().split('-')[0]
-    );
+      const baseUrl = requests.getFilters.url.replace(
+        '{type}',
+        typeParameter?.toLowerCase().split('-')[0]
+      );
 
-    const fullUrl = encodeURI(
-      `${baseUrl}&page=${pageParameter}&sort_by=${sortingParameter}&vote_average.gte=${ratingsParameter}${
-        typeParameter?.toLowerCase() === 'movie'
-          ? '&primary_release_year='
-          : '&first_air_date_year='
-      }${yearsParameters?.length ? yearsParameters.join(',') : ''}&with_genres=${
-        genresParameters?.length ? genresParameters.join(',') : ''
-      }`
-    );
+      const fullUrl = encodeURI(
+        `${baseUrl}&page=${pageParameter}&sort_by=${sortingParameter}&vote_average.gte=${ratingsParameter}${
+          typeParameter?.toLowerCase() === 'movie'
+            ? '&primary_release_year='
+            : '&first_air_date_year='
+        }${yearsParameters?.length ? yearsParameters.join(',') : ''}&with_genres=${
+          genresParameters?.length ? genresParameters.join(',') : ''
+        }`
+      );
 
-    const data = await apiHelper(fullUrl, undefined, 'get');
-
-    return data?.results;
+      setLoading(true);
+      const data = await apiHelper(fullUrl, undefined, 'get');
+      setLoading(false);
+      return data?.results;
+    } catch (error) {
+      console.error(error);
+      setLoading(false);
+    }
   }, []);
 
   const getGenres = useCallback(async () => {
@@ -157,6 +164,7 @@ const useFilter = (isBottom) => {
     checkQueryParameters,
     genres,
     handleFilterClick,
+    loading,
     movies,
     resetForm,
     type: new URLSearchParams(window.location.search).get('type'),
