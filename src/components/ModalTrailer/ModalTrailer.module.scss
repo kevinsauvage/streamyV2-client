@@ -1,6 +1,6 @@
 @import '../../styles/mixins';
 
-.modal-trailer {
+.modal {
   position: fixed;
   z-index: 9999999999999;
   top: 0;
@@ -14,15 +14,15 @@
   justify-content: center;
   background: rgba(39, 40, 41, 0.95);
   @include blackShadow;
+}
 
-  &__close {
-    position: absolute;
-    top: 1.5rem;
-    right: 2rem;
-    border: none;
-    background-color: transparent;
-    color: var(--surface-100);
-    cursor: pointer;
-    font-size: 50px;
-  }
+.close {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  border: none;
+  background-color: transparent;
+  color: var(--surface-100);
+  cursor: pointer;
+  font-size: 50px;
 }
