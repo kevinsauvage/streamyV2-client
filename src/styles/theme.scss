@@ -1,7 +1,4 @@
-$surface: #4b4d50;
-$surface-light: #c0c0c0;
-$primary: #d72323;
-$secondary: #613bfb;
+@import './variable';
 
 $colors-dark: (
   primary: $primary,
