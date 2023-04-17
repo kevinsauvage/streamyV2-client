@@ -9,6 +9,8 @@ import CardBtns from '../CardBtns/CardBtns';
 
 import styles from './MovieCard.module.scss';
 
+const getImageBaseUrl = () => (window.innerWidth < 500 ? image.url.w185 : image.url.w342);
+
 const MovieCard = ({ movie, type }) => {
   const card = useRef(null);
   const { original_name, original_title, poster_path } = movie || {};
@@ -22,11 +24,7 @@ const MovieCard = ({ movie, type }) => {
         <img
           className={styles.image}
           loading="lazy"
-          src={
-            poster_path
-              ? `${window.innerWidth < 500 ? image.url.w185 : image.url.w342}${poster_path}`
-              : PlaceholderImage
-          }
+          src={poster_path ? `${getImageBaseUrl()}${poster_path}` : PlaceholderImage}
           alt={original_title || original_name}
           width="185"
           height="278"
