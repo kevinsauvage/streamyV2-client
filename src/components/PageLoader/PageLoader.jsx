@@ -1,8 +1,8 @@
-import './PageLoader.scss';
+import styles from './PageLoader.module.scss';
 
 const PageLoader = () => (
-  <div className="page-loader">
-    <div className="page-loader__spinner" />
+  <div className={styles.container}>
+    <div className={styles.loader} />
   </div>
 );
 

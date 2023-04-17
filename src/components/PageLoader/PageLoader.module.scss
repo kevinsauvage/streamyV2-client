@@ -1,7 +1,7 @@
 @import '../../styles/variable';
 @import '../../styles/mixins';
 
-.page-loader {
+.container {
   position: fixed;
   z-index: 999999999999999999999;
   top: 0;
@@ -14,8 +14,8 @@
   align-items: center;
   justify-content: center;
   background-color: var(--surface-900);
+}
 
-  &__spinner {
-    @include spin;
-  }
+.loader {
+  @include spin;
 }
