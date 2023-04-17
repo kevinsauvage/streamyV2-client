@@ -2,7 +2,7 @@ import { BiCameraMovie, BiSlideshow } from 'react-icons/bi';
 import { MdFilterList, MdOutlineHome } from 'react-icons/md';
 import { Link, useLocation } from 'react-router-dom';
 
-import './Navigation.scss';
+import styles from './Navigation.module.scss';
 
 const navItems = [
   { content: 'Home', href: '/', icon: <MdOutlineHome /> },
@@ -14,12 +14,12 @@ const navItems = [
 const Navigation = ({ classNames }) => {
   const location = useLocation();
   return (
-    <nav className={`navigation ${classNames}`}>
-      <ul className="navigation__list">
+    <nav className={`${styles.navigation} ${classNames}`}>
+      <ul className={styles.list}>
         {navItems?.map((navItem) => (
           <li
             key={navItem.content}
-            className={`navigation__item ${location.pathname === navItem.href ? 'active' : ''}`}
+            className={`${styles.item} ${location.pathname === navItem.href ? styles.active : ''}`}
           >
             <Link to={navItem.href}>
               {navItem.icon}
