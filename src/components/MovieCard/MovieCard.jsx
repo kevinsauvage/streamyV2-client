@@ -17,10 +17,10 @@ const MovieCard = ({ movie, type }) => {
 
   return (
     <div className={styles.card} ref={card}>
-      <div className={styles.hover}>
-        <CardBtns movie={movie} type={type} className={styles['hover-buttons']} />
-      </div>
       <div className={styles['image-container']}>
+        <div className={styles.hover}>
+          <CardBtns movie={movie} type={type} className={styles['hover-buttons']} />
+        </div>
         <img
           className={styles.image}
           loading="lazy"
