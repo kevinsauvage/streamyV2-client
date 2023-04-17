@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 
 import Container from '../../components/Container/Container';
 import Form from '../../components/Form/Form';
-import FormBottom from '../../components/FormBottom/FormBottom';
+import FormBottom from '../../components/Form/FormBottom/FormBottom';
 import Input from '../../components/input/Input';
 import ResetPassword from '../../components/ResetPassword/ResetPassword';
 import { AuthContext } from '../../context/AuthContext';
