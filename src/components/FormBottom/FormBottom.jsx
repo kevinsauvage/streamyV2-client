@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 
-import './FormBottom.scss';
+import styles from './FormBottom.module.scss';
 
 const FormBottom = ({ firstText, href, linkText, onClick }) => (
-  <div className="form-bottom">
+  <div className={styles.container}>
     <p>{firstText}</p>{' '}
     {href ? (
       <Link to={href}>{linkText}</Link>
