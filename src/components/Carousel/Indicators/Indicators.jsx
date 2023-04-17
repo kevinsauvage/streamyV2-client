@@ -1,16 +1,14 @@
 /* eslint-disable react/no-array-index-key */
-import './Indicators.scss';
+import styles from './Indicators.module.scss';
 
 const Indicators = ({ childrensCount, itemsShow, page, updateActive }) => (
-  <div className="indicators">
+  <div className={styles.indicators}>
     {new Array(Math.ceil(childrensCount / itemsShow)).fill('').map((_, index) => (
       <button
         key={index}
         type="button"
         onClick={() => updateActive(index)}
-        className={
-          index === page ? 'indicators__outer indicators__outer--active' : 'indicators__outer'
-        }
+        className={`${styles.indicator} ${index === page ? styles.active : ''}`}
       />
     ))}
   </div>

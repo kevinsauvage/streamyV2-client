@@ -1,0 +1,30 @@
+@import '../../../styles/mixins';
+@import '../../../styles/variable';
+
+.indicators {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.indicator {
+  display: block;
+  display: flex;
+  width: 8px;
+  height: 8px;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 3px;
+  margin: 0 4px;
+  background-color: var(--primary);
+  cursor: pointer;
+  opacity: 0.2;
+
+  &.active {
+    width: 20px;
+    background-color: var(--primary);
+    opacity: 1;
+  }
+}
