@@ -1,0 +1,8 @@
+@import '../../styles/mixins';
+@import '../../styles/variable';
+
+.page {
+  overflow: hidden;
+  min-height: 100vh;
+  padding-bottom: 2rem;
+}

@@ -1,13 +1,13 @@
 import Navigation from '../../components/Navigation/Navigation';
 import PageLoader from '../../components/PageLoader/PageLoader';
 
-import './Page.scss';
+import styles from './Page.module.scss';
 
 const Page = ({ children, className, loading, ...rest }) => {
   if (loading) return <PageLoader />;
 
   return (
-    <div className={`Page ${className || ''}`} {...rest}>
+    <div className={`${styles.page} ${className || ''}`} {...rest}>
       <Navigation classNames="hide-desktop" />
       {children}
     </div>
