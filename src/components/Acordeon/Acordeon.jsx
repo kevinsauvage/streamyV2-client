@@ -7,7 +7,7 @@ import Title from '../Title/Title';
 
 import AcordeonCard from './AcordeonCard/AcordeonCard';
 
-import './Acordeon.scss';
+import styles from './Acordeon.module.scss';
 
 const Acordeon = ({ url, title, type }) => {
   const [index, setIndex] = useState(0);
@@ -60,29 +60,29 @@ const Acordeon = ({ url, title, type }) => {
   return (
     <Container>
       <div
-        className="Acordeon"
+        className={styles.acordeon}
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
         onTouchMove={handleTouchMove}
       >
         {movies.length === 0 ? (
-          <div className="Acordeon__loader">
+          <div className={styles.loader}>
             <div />
           </div>
         ) : (
           <>
             <Title title={title} />
-            <div className="Acordeon__wrapper">
+            <div className={styles.container}>
               <button
                 type="button"
                 onClick={handlePrevious}
-                className="Acordeon__arrow Acordeon__arrow--previus"
+                className={`${styles.arrow} ${styles.previous}`}
               >
                 <SlArrowLeft />
               </button>
 
               <div
-                className="Acordeon__inner"
+                className={styles.inner}
                 style={{
                   transform:
                     index === -1
@@ -106,7 +106,7 @@ const Acordeon = ({ url, title, type }) => {
               <button
                 type="button"
                 onClick={handleNext}
-                className="Acordeon__arrow Acordeon__arrow--next"
+                className={`${styles.arrow} ${styles.next}`}
               >
                 <SlArrowRight />
               </button>
