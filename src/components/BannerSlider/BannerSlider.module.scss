@@ -5,9 +5,9 @@
 .slide {
   position: relative;
   width: 100%;
-  height: calc(100vh - 70px);
+  max-height: calc(100vh - 70px);
 
-  @include respond(laptop_s) {
-    height: 100%;
+  @include respond(tablet) {
+    max-height: calc(100vh - 70px - 50px);
   }
 }
