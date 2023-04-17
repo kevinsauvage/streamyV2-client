@@ -7,7 +7,7 @@ import Container from '../Container/Container';
 import Form from '../Form/Form';
 import Input from '../input/Input';
 
-import './ResetPassword.scss';
+import styles from './ResetPassword.module.scss';
 
 const ResetPassword = ({ setDisplayPassRec }) => {
   const initialState = { email: '' };
@@ -31,9 +31,9 @@ const ResetPassword = ({ setDisplayPassRec }) => {
   );
 
   return (
-    <div className="ResetPassword">
+    <div className={styles.container}>
       <Container>
-        <div className="ResetPassword__close">
+        <div className={styles.close}>
           <AiOutlineCloseSquare
             onClick={() => {
               unstopScroll();
