@@ -13,7 +13,6 @@ const Slide = ({ url }) => {
   const [index, setIndex] = useState(0);
   const [touchStart, setTouchStart] = useState();
   const [touchEnd, setTouchEnd] = useState();
-  const [animate, setAnimate] = useState(false);
 
   useEffect(() => {
     if (!url || trendingMovies?.length || error) return;
@@ -28,17 +27,11 @@ const Slide = ({ url }) => {
       });
   }, [error, trendingMovies?.length, url]);
 
-  const animateCard = () => {
-    setAnimate(true);
-    setTimeout(() => setAnimate(false), 1000);
-  };
-
   const updateIndex = (newIndex) => {
     setTouchStart();
     setTouchEnd();
     if (newIndex <= 0) return setIndex(0);
     if (newIndex >= trendingMovies?.length) return setIndex((trendingMovies?.length || 1) - 1);
-    animateCard();
     return setIndex(newIndex);
   };
 
@@ -73,7 +66,7 @@ const Slide = ({ url }) => {
             <SlArrowLeft />
           </button>
 
-          <BigMovieCard movie={trendingMovies?.[index]} title="TRENDING" animate={animate} />
+          <BigMovieCard movie={trendingMovies?.[index]} title="TRENDING" />
           <button
             type="button"
             className={`${styles.arrow} ${styles.right}`}
