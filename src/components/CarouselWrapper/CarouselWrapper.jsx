@@ -17,7 +17,7 @@ const getItemsToShow = () => {
 };
 
 const CarouselWrapper = ({ url, title, type }) => {
-  const [movies, setMovies] = useState([]);
+  const [movies, setMovies] = useState();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
@@ -39,6 +39,8 @@ const CarouselWrapper = ({ url, title, type }) => {
   // TODO: Improve error handling
   if (error) return <p>Something went wrong</p>;
 
+  if (!loading && movies && !movies?.length) return;
+
   return (
     <div className={styles.container}>
       <Title title={title} />
@@ -53,7 +55,7 @@ const CarouselWrapper = ({ url, title, type }) => {
           padding={10}
           loading={loading}
         >
-          {movies.map((item) => (
+          {movies?.map((item) => (
             <MovieCard movie={item} key={item.id} type={type} />
           ))}
         </Carousel>
