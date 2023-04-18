@@ -3,7 +3,7 @@ import { Children } from 'react';
 import styles from './CarouselSkeleton.module.scss';
 
 const CarouselSkeleton = ({ itemToShow, padding }) => {
-  const skeletonItems = new Array(itemToShow * 2).fill('');
+  const skeletonItems = new Array(itemToShow).fill('');
 
   return (
     <div className={styles.carousel}>

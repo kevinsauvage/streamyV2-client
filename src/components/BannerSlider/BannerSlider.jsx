@@ -23,7 +23,12 @@ const BannerSlider = ({ url }) => {
 
   return (
     <div className={styles.slide}>
-      <Carousel itemToShow={1} padding={0} loading={loading}>
+      {loading && (
+        <div className="loader" style={{ minHeight: '400px' }}>
+          <div />
+        </div>
+      )}
+      <Carousel itemToShow={1} padding={0}>
         {trendingMovies?.map((movie) => (
           <BigMovieCard key={movie.id} movie={movie} title="TRENDING" />
         ))}

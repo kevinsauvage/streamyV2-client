@@ -43,7 +43,7 @@ const CarouselWrapper = ({ url, title, type }) => {
     <div className={styles.container}>
       <Title title={title} />
       {loading ? (
-        <CarouselSkeleton itemToShow={5} padding={10} />
+        <CarouselSkeleton itemToShow={getItemsToShow()} padding={10} />
       ) : (
         <Carousel
           arrowLeftStyle={{ left: '-3rem' }}

@@ -5,9 +5,10 @@
 .slide {
   position: relative;
   width: 100%;
-  max-height: calc(100vh - 70px);
+  height: calc(100vh - 70px);
 
   @include respond(tablet) {
+    height: 100%;
     max-height: calc(100vh - 70px - 50px);
   }
 }
