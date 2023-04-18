@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react';
 
-const useForm = (initialState = {}, onSubmit) => {
-  const [formData, setFormData] = useState(initialState);
+const useForm = (initialState, onSubmit) => {
+  const [formData, setFormData] = useState(initialState || {});
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
