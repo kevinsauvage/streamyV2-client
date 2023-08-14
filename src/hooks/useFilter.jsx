@@ -29,8 +29,7 @@ const useFilter = (isBottom) => {
       for (const [key, value] of Object.entries(parametersToCheck)) {
         const queryParameter = searchParameters.getAll(key);
         if (
-          !queryParameter ||
-          !queryParameter.some(
+          !queryParameter?.some(
             (parameter) => parameter?.toString()?.toLowerCase() === value?.toString()?.toLowerCase()
           )
         ) {
