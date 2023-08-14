@@ -18,11 +18,11 @@
       @content;
     }
   } @else if $media == laptop_s {
-    @media (max-width: $laptop_s) {
+    @media (max-width: $laptop) {
       @content;
     }
-  } @else if $media == laptop_l {
-    @media (max-width: $laptop_l) {
+  } @else if $media == desktop {
+    @media (max-width: $desktop) {
       @content;
     }
   }
