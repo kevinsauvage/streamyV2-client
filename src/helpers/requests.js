@@ -1,5 +1,7 @@
 const API_KEY = process.env.REACT_APP_TMDB_KEY;
 
+const currentDate = new Date().toISOString().split('T')[0]; // Get current date in YYYY-MM-DD format
+
 const requests = {
   Home: {
     PopularMovies: {
@@ -80,131 +82,131 @@ const requests = {
     ActionMovies: {
       title: 'Action',
       type: 'Movie',
-      url: `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=28&language=en-US&include_adult=false`,
+      url: `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=28&language=en-US&include_adult=false&sort_by=release_date.desc&primary_release_date.lte=${currentDate}`,
     },
     Adventure: {
       title: 'Adventure',
       type: 'Movie',
-      url: `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=12&language=en-US&include_adult=false`,
+      url: `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=12&language=en-US&include_adult=false&sort_by=release_date.desc&primary_release_date.lte=${currentDate}`,
     },
     ComedyMovies: {
       title: 'Comedy',
       type: 'Movie',
-      url: `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=35&language=en-&include_adult=false`,
+      url: `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=35&language=en-&include_adult=false&sort_by=release_date.desc&primary_release_date.lte=${currentDate}`,
     },
     Documentary: {
       title: 'Documentary',
       type: 'Movie',
-      url: `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=99&language=en-US&include_adult=false`,
+      url: `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=99&language=en-US&include_adult=false&sort_by=release_date.desc&primary_release_date.lte=${currentDate}`,
     },
     DramaMovies: {
       title: 'Drama',
       type: 'Movie',
-      url: `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=18&language=en-US&include_adult=false`,
+      url: `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=18&language=en-US&include_adult=false&sort_by=release_date.desc&primary_release_date.lte=${currentDate}`,
     },
     Family: {
       title: 'Family',
       type: 'Movie',
-      url: `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=10751&language=en-US&include_adult=false`,
+      url: `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=10751&language=en-US&include_adult=false&sort_by=release_date.desc&primary_release_date.lte=${currentDate}`,
     },
     Fantasy: {
       title: 'Fantasy',
       type: 'Movie',
-      url: `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=14&language=en-US&include_adult=false`,
+      url: `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=14&language=en-US&include_adult=false&sort_by=release_date.desc&primary_release_date.lte=${currentDate}`,
     },
     History: {
       title: 'History',
       type: 'Movie',
-      url: `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=36&language=en-US&include_adult=false`,
+      url: `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=36&language=en-US&include_adult=false&sort_by=release_date.desc&primary_release_date.lte=${currentDate}`,
     },
     HorrorMovies: {
       title: 'Horror',
       type: 'Movie',
-      url: `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=27&language=en-US&include_adult=false`,
+      url: `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=27&language=en-US&include_adult=false&sort_by=release_date.desc&primary_release_date.lte=${currentDate}`,
     },
     Music: {
       title: 'Music',
       type: 'Movie',
-      url: `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=10402&language=en-US&include_adult=false`,
+      url: `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=10402&language=en-US&include_adult=false&sort_by=release_date.desc&primary_release_date.lte=${currentDate}`,
     },
     MysteryMovies: {
       title: 'Mystery',
       type: 'Movie',
-      url: `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=9648&language=en-US&include_adult=false`,
+      url: `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=9648&language=en-US&include_adult=false&sort_by=release_date.desc&primary_release_date.lte=${currentDate}`,
     },
     RomanceMovies: {
       title: 'Romance',
       type: 'Movie',
-      url: `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=10749&language=en-US&include_adult=false`,
+      url: `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=10749&language=en-US&include_adult=false&sort_by=release_date.desc&primary_release_date.lte=${currentDate}`,
     },
     ScienceFictionMovies: {
       title: 'Science Fiction',
       type: 'Movie',
-      url: `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=878&language=en-US&include_adult=false`,
+      url: `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=878&language=en-US&include_adult=false&sort_by=release_date.desc&primary_release_date.lte=${currentDate}`,
     },
     ThrillerMovies: {
       title: 'Thriller',
       type: 'Movie',
-      url: `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=53&language=en-US&include_adult=false`,
+      url: `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=53&language=en-US&include_adult=false&sort_by=release_date.desc&primary_release_date.lte=${currentDate}`,
     },
     TvMovie: {
       title: 'TV Movie',
       type: 'Movie',
-      url: `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=10770&language=en-US&include_adult=false`,
+      url: `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=10770&language=en-US&include_adult=false&sort_by=release_date.desc&primary_release_date.lte=${currentDate}`,
     },
     WesternMovies: {
       title: 'Western',
       type: 'Movie',
-      url: `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=37&language=en-US&include_adult=false`,
+      url: `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=37&language=en-US&include_adult=false&sort_by=release_date.desc&primary_release_date.lte=${currentDate}`,
     },
   },
   searchMulti: {
-    url: `https://api.themoviedb.org/3/search/multi?api_key=${API_KEY}&language=en-US&include_adult=false`,
+    url: `https://api.themoviedb.org/3/search/multi?api_key=${API_KEY}&language=en-US&include_adult=false&sort_by=release_date.desc&primary_release_date.lte=${currentDate}`,
   },
   series: {
     ActionTvShow: {
       title: 'Action & Adventure',
-      url: `https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&with_genres=10759&language=en-US&include_adult=false`,
+      url: `https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&with_genres=10759&language=en-US&include_adult=false&sort_by=release_date.desc&&first_air_date.lte=${currentDate}`,
     },
     ComedyTvShow: {
       title: 'Comedy',
-      url: `https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&with_genres=35&language=en-US&include_adult=false`,
+      url: `https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&with_genres=35&language=en-US&include_adult=false&sort_by=release_date.desc&&first_air_date.lte=${currentDate}`,
     },
     Documentary: {
       title: 'Documentary',
-      url: `https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&with_genres=99&language=en-US&include_adult=false`,
+      url: `https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&with_genres=99&language=en-US&include_adult=false&sort_by=release_date.desc&&first_air_date.lte=${currentDate}`,
     },
     DramaTvShow: {
       title: 'Drama',
-      url: `https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&with_genres=18&language=en-US&include_adult=false`,
+      url: `https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&with_genres=18&language=en-US&include_adult=false&sort_by=release_date.desc&&first_air_date.lte=${currentDate}`,
     },
     Family: {
       title: 'Family',
-      url: `https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&with_genres=10751&language=en-US&include_adult=false`,
+      url: `https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&with_genres=10751&language=en-US&include_adult=false&sort_by=release_date.desc&&first_air_date.lte=${currentDate}`,
     },
     Fantasy: {
       title: 'Sci-Fi & Fantasy',
-      url: `https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&with_genres=10765&language=en-US&include_adult=false`,
+      url: `https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&with_genres=10765&language=en-US&include_adult=false&sort_by=release_date.desc&&first_air_date.lte=${currentDate}`,
     },
     MysteryTvShow: {
       title: 'Mystery',
-      url: `https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&with_genres=9648&language=en-US&include_adult=false`,
+      url: `https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&with_genres=9648&language=en-US&include_adult=false&sort_by=release_date.desc&&first_air_date.lte=${currentDate}`,
     },
     Reality: {
       title: 'Reality',
-      url: `https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&with_genres=10764&language=en-US&include_adult=false`,
+      url: `https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&with_genres=10764&language=en-US&include_adult=false&sort_by=release_date.desc&&first_air_date.lte=${currentDate}`,
     },
     WesternTvShow: {
       title: 'Western',
-      url: `https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&with_genres=37&language=en-US&include_adult=false`,
+      url: `https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&with_genres=37&language=en-US&include_adult=false&sort_by=release_date.desc&&first_air_date.lte=${currentDate}`,
     },
     animation: {
       title: 'Animation',
-      url: `https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&with_genres=16&language=en-US&include_adult=false`,
+      url: `https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&with_genres=16&language=en-US&include_adult=false&sort_by=release_date.desc&&first_air_date.lte=${currentDate}`,
     },
     crime: {
       title: 'Thriller',
-      url: `https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&with_genres=80&language=en-US&include_adult=false`,
+      url: `https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&with_genres=80&language=en-US&include_adult=false&sort_by=release_date.desc&&first_air_date.lte=${currentDate}`,
     },
   },
 };
